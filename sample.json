@@ -16,7 +16,32 @@
         }
       },
       "mark": {
-        "type": "geoshape"
+        "type": "geoshape",
+        "stroke": "lightskyblue"
+      },
+      "transform": [
+        {
+          "lookup": "properties.NAME_1",
+          "from": {
+            "data": {
+              "url": "india-covid.csv"
+            },
+            "key": "State/UTs",
+            "fields": [
+              "Active Ratio (%)"
+            ]
+          }
+        }
+      ],
+      "encoding": {
+        "color": {
+          "field": "Active Ratio (%)",
+          "type": "quantitative",
+          "title": "Active Ratio of COVID-19 Cases",
+          "scale": {
+            "type": "log"
+          }
+        }
       }
     }
   ]

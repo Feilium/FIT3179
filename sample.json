@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 600,
+  "data": {
+    "url": "js/us.json",
+    "format": {"type": "topojson", "feature": "20m"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.NAME",
+      "from": {
+        "data": {"url": "data/state_living_standards.csv"},
+        "key": "state",
+        "fields": ["min_living"]
+      }
+    },
+    {"calculate": "datum.min_living + 0", "as": "min_living"}
+  ],
+  "projection": {"type": "albersUsa"},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {"field": "min_living", "type": "quantitative"},
+    "tooltip": [
+      {"field": "properties.NAME", "type": "nominal", "title": "states"},
+      {
+        "field": "min_living",
+        "type": "quantitative",
+        "title": "minimum living cost"
+      }
+    ]
+  }
+}

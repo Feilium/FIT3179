@@ -3,31 +3,51 @@
     "width": 1000,
     "height": 600,
     "data": {
-      "url": "topojson.json",
-      "format": {"type": "topojson", "feature": "India"}
+        "url": "topojson.json",
+        "format": {
+            "type": "topojson",
+            "feature": "India"
+        }
     },
     "transform": [
-      {
-        "lookup": "properties.NAME",
-        "from": {
-          "data": {"url": "Latest Covid-19 India Status.csv"},
-          "key": "State/UTs",
-          "fields": ["Total Cases"]
-        }
-      },
-      {"calculate": "Total Cases"}
-    ],
-    "projection": {"type": "equalEarth"},
-    "mark": {"type": "geoshape"},
-    "encoding": {
-      "color": {"field": "Total Cases", "type": "quantitative"},
-      "tooltip": [
-        {"field": "properties.NAME", "type": "nominal", "title": "State/UTs"},
         {
-          "field": "Total Cases",
-          "type": "quantitative",
-          "title": "Total Cases in India"
+            "lookup": "properties.NAME_1",
+            "from": {
+                "data": {
+                    "url": "Latest Covid-19 India Status.csv"
+                },
+                "key": "State/UTs",
+                "fields": [
+                    "Total Cases"
+                ]
+            }
+        },
+        {
+            "calculate": "Total Cases"
         }
-      ]
+    ],
+    "projection": {
+        "type": "equalEarth"
+    },
+    "mark": {
+        "type": "geoshape"
+    },
+    "encoding": {
+        "color": {
+            "field": "Total Cases",
+            "type": "quantitative"
+        },
+        "tooltip": [
+            {
+                "field": "properties.NAME",
+                "type": "nominal",
+                "title": "State/UTs"
+            },
+            {
+                "field": "Total Cases",
+                "type": "quantitative",
+                "title": "Total Cases in India"
+            }
+        ]
     }
-  }
+}

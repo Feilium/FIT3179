@@ -1,0 +1,29 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 300,
+    "title": "Percentage of COVID-19 cases against the 2011 Population Census",
+    "data": {
+        "url": "india-covid.csv"
+      },
+    "mark": "circle",
+    "encoding": {
+        "x":{
+            "field": "Total_population_2011",
+            "type": "quantitative",
+            "title": "Total Population in 2011"
+        },
+        "y":{
+            "field":"Total Cases",
+            "type": "quantitative"
+        },
+        "color":{
+            "field":"State/UTs",
+            "type":"nominal"
+        },
+        "size":{
+            "field":"Total_population_2011",
+            "type":"quantitative"
+        }
+    }
+    }

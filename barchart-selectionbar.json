@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 300,
+    "title": "Percentage of COVID-19 cases against the 2011 Population Census",
+    "data": {
+        "url": "india-covid.csv"
+      },
+      "params": [
+        {
+          "name": "State/UTs",
+          "select":{
+            "type":"point",
+            "fields": ["State/UTs"]
+          },
+          "bind":"legend"
+      }
+    ],
+      "mark": "bar",
+    "encoding": {
+        "x":{
+            "field": "State/UTs",
+            "type": "nominal",
+            "title": "States in India"
+        },
+        "y":{
+            "field":"Active Ratio (%)",
+            "type": "quantitative"
+        },
+        "color":{
+            "field":"State/UTs",
+            "type":"nominal"
+        },
+                "opacity":{
+          "condition":{
+            "param":"State/UTs",
+          "value":1.0},
+          "value":0.2
+        },
+        "tooltip": [
+            {
+              "field": "State/UTs",
+              "type": "nominal",
+              "title": "State/Union Teritories"
+            },
+            {
+              "field": "Active Ratio (%)",
+              "type": "quantitative",
+              "title": "Active Ratio of COVID-19"
+            }
+            ]
+    }
+    }

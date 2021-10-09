@@ -11,11 +11,17 @@
         "x":{
             "field": "Total_population_2011",
             "type": "quantitative",
-            "title": "Total Population in 2011"
+            "title": "Total Population in 2011",
+            "scale":{
+                "type": "sqrt"
+            }
         },
         "y":{
             "field":"Total Cases",
-            "type": "quantitative"
+            "type": "quantitative",
+            "scale":{
+                "type":"sqrt"
+            }
         },
         "color":{
             "field":"State/UTs",

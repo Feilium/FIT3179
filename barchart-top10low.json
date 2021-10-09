@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 300,
     "height": 300,
-    "title": "Top 10 Lowest Active Ratio of COVID-19",
+    "title": "Top 10 Indian States with Lowest Active Ratio of COVID-19",
     "data": {
         "url": "india-covid-top10low.csv"
       },

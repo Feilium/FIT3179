@@ -31,7 +31,7 @@
             "field":"State/UTs",
             "type":"nominal"
         },
-                "opacity":{
+        "opacity":{
           "condition":{
             "param":"State/UTs",
           "value":1.0},

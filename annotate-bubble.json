@@ -1,0 +1,113 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 300,
+    "title": "COVID-19 Cases in India (States)",
+    "data": {
+        "url": "india-covid.csv"
+      },
+    "encoding":{
+        "y":{
+            "field":"Deaths",
+            "type":"quantitative"
+        },
+        "x": {
+            "field":"Total Cases",
+            "type":"quantitative"
+        }
+    },
+    "layer":[
+        {
+         "params": 
+         [
+           {
+          "name": "State/UTs",
+          "select":{
+            "type":"point",
+            "fields": ["State/UTs"]
+          },
+          "bind":"legend"
+      }
+    ],
+            "mark":"circle",
+
+            "encoding": {
+                "y":{
+                    "field":"Deaths",
+                    "type": "quantitative",
+                    "title":"Deaths due to COVID-19",
+                    "scale": {
+                        "type": "sqrt"
+                    }
+                },
+                "x":{
+                    "field":"Total Cases",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "sqrt"
+                    }
+                },
+                "color":{
+                    "field":"State/UTs",
+                    "type": "nominal"
+                },
+                "size":{
+                    "field":"Total Cases",
+                    "type": "nominal"
+                },
+                        "opacity":{
+          "condition":{
+            "param":"State/UTs",
+          "value":1.0},
+          "value":0.2
+        },
+                "tooltip": [
+                    {
+                      "field": "State/UTs",
+                      "type": "nominal",
+                      "title": "State/Union Teritories"
+                    },
+                    {
+                      "field": "Total Cases",
+                      "type": "quantitative",
+                      "title": "Confirmed Cases",
+                      "format":","
+                    },
+                                {
+                      "field": "Deaths",
+                      "type": "quantitative",
+                      "title": "Deaths",
+                      "format":","
+                    }
+                    ]
+            }
+        },
+        {
+            "mark":{
+                "type": "text",
+                "align":"right",
+                "baseline":"middle",
+                "dx":-12,
+                "fontSize":11.5,
+                "fontStyle":"italic"
+            },
+            "encoding": {
+                "text":{
+                    "field":"State/UTs",
+                    "type": "nominal"
+                },
+                "color":{
+                    "value":"black"
+                },
+                "opacity":{
+                    "condition":{
+                        "test": "datum['State/UTs'] == 'Maharashtra' || datum['State/UTs'] == 'Kerala' || datum['State/UTs'] == 'Karnataka'",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+
+            }
+        }
+    ]
+}

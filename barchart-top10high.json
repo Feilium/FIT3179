@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 300,
     "height": 300,
-    "title": "Top 10 Highest Active Ratio",
+    "title": "Top 10 Indian States with Highest Active Ratio",
     "data": {
         "url": "india-covid-top10high.csv"
       },

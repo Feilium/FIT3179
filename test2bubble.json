@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 300,
     "height": 300,
-    "title": "COVID-19 Cases in India (States)",
+    "title": "Top 10 States with Most COVID-19 Deaths",
     "data": {
         "url": "india-covid.csv"
       },
@@ -52,7 +52,7 @@
                     "type": "nominal"
                 },
                 "size":{
-                    "field":"Total Cases",
+                    "field":"Total_population_2011",
                     "type": "quantitative"
                 },
                         "opacity":{
@@ -87,7 +87,8 @@
                 "type": "text",
                 "align":"right",
                 "baseline":"middle",
-                "dx":-12,
+                "dx":-15,
+                
                 "fontSize":11.5,
                 "fontStyle":"italic"
             },
@@ -101,7 +102,7 @@
                 },
                 "opacity":{
                     "condition":{
-                        "test": "datum['State/UTs'] == 'Maharashtra' || datum['State/UTs'] == 'Kerala' || datum['State/UTs'] == 'Karnataka'",
+                        "test": "datum['State/UTs'] == 'Maharashtra' || datum['State/UTs'] == 'Kerala' || datum['State/UTs'] == 'Delhi' || datum['State/UTs'] == 'Uttar Pradesh' || datum['State/UTs'] == 'West Bengal' || datum['State/UTs'] == 'Dadra and Nagar Haveli and Daman and Diu' ",
                         "value": 1
                     },
                     "value": 0

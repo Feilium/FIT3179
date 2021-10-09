@@ -2,12 +2,25 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 300,
     "height": 300,
-    "title": "Top 10 Indian States with Lowest Active Ratio of COVID-19",
+    "title": "Top 10 States with Least COVID-19 Deaths",
     "data": {
         "url": "india-covid-top10low.csv"
       },
-      "params": [
+    "encoding":{
+        "y":{
+            "field":"Deaths",
+            "type":"quantitative"
+        },
+        "x": {
+            "field":"Total Cases",
+            "type":"quantitative"
+        }
+    },
+    "layer":[
         {
+         "params": 
+         [
+           {
           "name": "State/UTs",
           "select":{
             "type":"point",
@@ -16,38 +29,79 @@
           "bind":"legend"
       }
     ],
-      "mark": "bar",
-    "encoding": {
-        "x":{
-            "field": "State/UTs",
-            "type": "nominal",
-            "title": "States in India"
-        },
-        "y":{
-            "field":"Active Ratio (%)",
-            "type": "quantitative"
-        },
-        "color":{
-            "field":"State/UTs",
-            "type":"nominal"
-        },
-                "opacity":{
+            "mark":"circle",
+
+            "encoding": {
+                "y":{
+                    "field":"Deaths",
+                    "type": "quantitative",
+                    "title":"Deaths due to COVID-19"
+                },
+                "x":{
+                    "field":"Total Cases",
+                    "type": "quantitative"
+                },
+                "color":{
+                    "field":"State/UTs",
+                    "type": "nominal"
+                },
+                "size":{
+                    "field":"Total_population_2011",
+                    "type": "quantitative"
+                },
+                        "opacity":{
           "condition":{
             "param":"State/UTs",
           "value":1.0},
           "value":0.2
         },
-        "tooltip": [
-            {
-              "field": "State/UTs",
-              "type": "nominal",
-              "title": "State/Union Teritories"
-            },
-            {
-              "field": "Active Ratio (%)",
-              "type": "quantitative",
-              "title": "Active Ratio of COVID-19"
+                "tooltip": [
+                    {
+                      "field": "State/UTs",
+                      "type": "nominal",
+                      "title": "State/Union Teritories"
+                    },
+                    {
+                      "field": "Total Cases",
+                      "type": "quantitative",
+                      "title": "Confirmed Cases",
+                      "format":","
+                    },
+                                {
+                      "field": "Deaths",
+                      "type": "quantitative",
+                      "title": "Deaths",
+                      "format":","
+                    }
+                    ]
             }
-            ]
-    }
-    }
+        },
+        {
+            "mark":{
+                "type": "text",
+                "align":"right",
+                "baseline":"middle",
+                "dx":-20,
+                "fontSize":11.5,
+                "fontStyle":"italic"
+            },
+            "encoding": {
+                "text":{
+                    "field":"State/UTs",
+                    "type": "nominal"
+                },
+                "color":{
+                    "value":"black"
+                },
+                "opacity":{
+                    "condition":{
+                        "test": "datum['State/UTs'] == 'Uttar Pradesh' || datum['State/UTs'] == 'West Bengal' || datum['State/UTs'] == 'Dadra and Nagar Haveli and Daman and Diu'",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+
+            }
+        }
+    ]
+}

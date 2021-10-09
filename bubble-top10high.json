@@ -2,9 +2,9 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 300,
     "height": 300,
-    "title": "COVID-19 Cases in India (States)",
+    "title": "Top 10 States with Most COVID-19 Deaths",
     "data": {
-        "url": "india-covid.csv"
+        "url": "india-covid-top10high.csv"
       },
     "encoding":{
         "y":{
@@ -52,7 +52,7 @@
                     "type": "nominal"
                 },
                 "size":{
-                    "field":"Total Cases",
+                    "field":"Death Ratio (%)",
                     "type": "quantitative"
                 },
                         "opacity":{
@@ -73,10 +73,16 @@
                       "title": "Confirmed Cases",
                       "format":","
                     },
-                                {
+                    {
                       "field": "Deaths",
                       "type": "quantitative",
                       "title": "Deaths",
+                      "format":","
+                    },
+                    {
+                      "field": "Death Ratio (%)",
+                      "type": "quantitative",
+                      "title": "Death Ratio (%)",
                       "format":","
                     }
                     ]
@@ -101,7 +107,7 @@
                 },
                 "opacity":{
                     "condition":{
-                        "test": "datum['State/UTs'] == 'Maharashtra' || datum['State/UTs'] == 'Kerala' || datum['State/UTs'] == 'Karnataka'",
+                        "test": "datum['State/UTs'] == 'Maharashtra' || datum['State/UTs'] == 'Kerala' || datum['State/UTs'] == 'Delhi'",
                         "value": 1
                     },
                     "value": 0

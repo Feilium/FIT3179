@@ -2,9 +2,9 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 300,
     "height": 300,
-    "title": "COVID-19 Cases in India (States)",
+    "title": "Top 10 States with Least COVID-19 Deaths",
     "data": {
-        "url": "india-covid.csv"
+        "url": "india-covid-top10low.csv"
       },
     "encoding":{
         "y":{
@@ -35,24 +35,18 @@
                 "y":{
                     "field":"Deaths",
                     "type": "quantitative",
-                    "title":"Deaths due to COVID-19",
-                    "scale": {
-                        "type": "sqrt"
-                    }
+                    "title":"Deaths due to COVID-19"
                 },
                 "x":{
                     "field":"Total Cases",
-                    "type": "quantitative",
-                    "scale": {
-                        "type": "sqrt"
-                    }
+                    "type": "quantitative"
                 },
                 "color":{
                     "field":"State/UTs",
                     "type": "nominal"
                 },
                 "size":{
-                    "field":"Total Cases",
+                    "field":"Death Ratio (%)",
                     "type": "quantitative"
                 },
                         "opacity":{
@@ -73,10 +67,16 @@
                       "title": "Confirmed Cases",
                       "format":","
                     },
-                                {
+                    {
                       "field": "Deaths",
                       "type": "quantitative",
                       "title": "Deaths",
+                      "format":","
+                    },
+                    {
+                      "field": "Death Ratio (%)",
+                      "type": "quantitative",
+                      "title": "Death Ratio (%)",
                       "format":","
                     }
                     ]
@@ -87,7 +87,7 @@
                 "type": "text",
                 "align":"right",
                 "baseline":"middle",
-                "dx":-12,
+                "dx":-20,
                 "fontSize":11.5,
                 "fontStyle":"italic"
             },
@@ -101,7 +101,7 @@
                 },
                 "opacity":{
                     "condition":{
-                        "test": "datum['State/UTs'] == 'Maharashtra' || datum['State/UTs'] == 'Kerala' || datum['State/UTs'] == 'Karnataka'",
+                        "test": "datum['State/UTs'] == 'Uttar Pradesh' || datum['State/UTs'] == 'West Bengal' || datum['State/UTs'] == 'Dadra and Nagar Haveli and Daman and Diu'",
                         "value": 1
                     },
                     "value": 0

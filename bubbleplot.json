@@ -6,6 +6,16 @@
     "data": {
         "url": "india-covid.csv"
       },
+      "params": [
+        {
+          "name": "State/UTs",
+          "select":{
+            "type":"point",
+            "fields": ["State/UTs"]
+          },
+          "bind":"legend"
+      }
+    ],
     "mark": "circle",
     "encoding": {
         "x":{
@@ -30,6 +40,12 @@
         "size":{
             "field":"Total_population_2011",
             "type":"quantitative"
-        }
+        },
+        "opacity":{
+            "condition":{
+              "param":"State/UTs",
+            "value":1.0},
+            "value":0.2
+          }
     }
     }

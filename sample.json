@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
+  "width": 800,
   "height": 600,
   "title": "Active Ratio of Covid-19 Cases in India as of 21st September 2021",
   "projection": {

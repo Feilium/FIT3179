@@ -43,7 +43,8 @@
                 },
                 "color":{
                     "field":"State/UTs",
-                    "type": "nominal"
+                    "type": "nominal",
+                    "scale": {"scheme": "category10"}
                 },
                 "size":{
                     "field":"Death Ratio (%)",
@@ -87,7 +88,7 @@
                 "type": "text",
                 "align":"right",
                 "baseline":"middle",
-                "dx":-20,
+                "dx":-9,
                 "fontSize":11.5,
                 "fontStyle":"italic"
             },
@@ -101,7 +102,7 @@
                 },
                 "opacity":{
                     "condition":{
-                        "test": "datum['State/UTs'] == 'Uttar Pradesh' || datum['State/UTs'] == 'West Bengal' || datum['State/UTs'] == 'Dadra and Nagar Haveli and Daman and Diu'",
+                        "test": "datum['State/UTs'] == 'Tripura' || datum['State/UTs'] == 'Chandigarh' || datum['State/UTs'] == 'Nagaland'",
                         "value": 1
                     },
                     "value": 0

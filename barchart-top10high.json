@@ -1,53 +1,78 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 300,
-    "height": 300,
-    "title": "Top 10 Indian States with Highest Active Ratio",
-    "data": {
-        "url": "india-covid-top10high.csv"
-      },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300,
+  "height": 300,
+  "title": "Top 10 Indian State/UTs with Highest COVID-19 Deaths",
+  "data": {"url": "india-covid-top10high.csv"},
+  "encoding": {
+    "y": {
+      "field": "State/UTs",
+      "type": "nominal",
+      "sort": []
+    },
+    "x": {
+      "field": "Deaths",
+      "type": "quantitative",
+      "scale": {"domain": [0, 160000]}
+    }
+  },
+  "layer": [
+    {
       "params": [
         {
           "name": "State/UTs",
-          "select":{
-            "type":"point",
-            "fields": ["State/UTs"]
-          },
-          "bind":"legend"
-      }
-    ],
-      "mark": "bar",
-    "encoding": {
-        "x":{
-            "field": "State/UTs",
+          "select": {"type": "point", "fields": ["State/UTs"]},
+          "bind": "legend"
+        }
+      ],
+      "mark": {"type":"bar", "cornerRadiusTopLeft": 0, "cornerRadiusTopRight": 3},
+      "encoding": {
+        "y": {
+          "field": "State/UTs",
+          "type": "nominal",
+          "sort": [],
+          "title":null
+        },
+        "x": {"field": "Deaths", "type": "quantitative"},
+        "color": {
+            "field": "State/UTs", 
             "type": "nominal",
-            "title": "States in India"
+            "scale": {"scheme": "tableau10"}
         },
-        "y":{
-            "field":"Active Ratio (%)",
-            "type": "quantitative"
-        },
-        "color":{
-            "field":"State/UTs",
-            "type":"nominal"
-        },
-                "opacity":{
-          "condition":{
-            "param":"State/UTs",
-          "value":1.0},
-          "value":0.2
+        "opacity": {
+          "condition": {"param": "State/UTs", "value": 1},
+          "value": 0.2
         },
         "tooltip": [
-            {
-              "field": "State/UTs",
-              "type": "nominal",
-              "title": "State/Union Teritories"
+          {
+            "field": "State/UTs",
+            "type": "nominal",
+            "title": "State/Union Teritories"
+          },
+          {
+            "field": "Deaths",
+            "type": "quantitative",
+            "title": "Number of Deaths"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 11,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {
+            "field": "Deaths", 
+            "type": "quantitative", 
+            "format": ","
             },
-            {
-              "field": "Active Ratio (%)",
-              "type": "quantitative",
-              "title": "Active Ratio of COVID-19"
-            }
-            ]
+        "color": {"value": "black"}
+      }
     }
-    }
+  ]
+}

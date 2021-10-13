@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
   "height": 600,
-  "title": "Active Ratio of Covid-19 Cases in India as of 21st September 2021",
+  "title": "Death Ratio of Covid-19 Cases in India as of 21st September 2021",
   "projection": {
     "type": "equirectangular"
   },
@@ -17,7 +17,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "stroke": "lightskyblue"
+        "stroke": "white"
       },
       "transform": [
         {
@@ -28,19 +28,16 @@
             },
             "key": "State/UTs",
             "fields": [
-              "Active Ratio (%)"
+              "Death Ratio (%)"
             ]
           }
         }
       ],
       "encoding": {
         "color": {
-          "field": "Active Ratio (%)",
+          "field": "Death Ratio (%)",
           "type": "quantitative",
-          "title": "Log Active Ratio of COVID-19",
-          "scale": {
-            "type": "log"
-          }
+          "title": "Death Ratio (%)"
         },
         "tooltip": [
           {
@@ -49,12 +46,12 @@
             "title": "State"
           },
           {
-            "field": "Active Ratio (%)",
+            "field": "Death Ratio (%)",
             "type": "quantitative",
-            "title": "log Active Ratio of COVID-19"
+            "title": "Death Ratio (%)"
           }
-          ]
-        }  
+        ]
       }
-    ]
-  }
+    }
+  ]
+}

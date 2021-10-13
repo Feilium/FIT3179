@@ -5,114 +5,110 @@
     "title": "Top 10 States with Most COVID-19 Deaths",
     "data": {
         "url": "india-covid-top10high.csv"
-      },
-    "encoding":{
-        "y":{
-            "field":"Deaths",
-            "type":"quantitative"
+    },
+    "encoding": {
+        "y": {
+            "field": "Deaths",
+            "type": "quantitative"
         },
         "x": {
-            "field":"Total Cases",
-            "type":"quantitative"
+            "field": "Total Cases",
+            "type": "quantitative"
         }
     },
-    "layer":[
+    "layer": [
         {
-         "params": 
-         [
-           {
-          "name": "State/UTs",
-          "select":{
-            "type":"point",
-            "fields": ["State/UTs"]
-          },
-          "bind":"legend"
-      }
-    ],
-            "mark":"circle",
-
+            "params": [
+                {
+                    "name": "State/UTs",
+                    "select": {
+                        "type": "point",
+                        "fields": [
+                            "State/UTs"
+                        ]
+                    },
+                    "bind": "legend"
+                }
+            ],
+            "mark": "circle",
             "encoding": {
-                "y":{
-                    "field":"Deaths",
+                "y": {
+                    "field": "Deaths",
                     "type": "quantitative",
-                    "title":"Deaths due to COVID-19",
-                    "scale": {
-                        "type": "sqrt"
-                    }
+                    "title": "Deaths due to COVID-19"
                 },
-                "x":{
-                    "field":"Total Cases",
-                    "type": "quantitative",
-                    "scale": {
-                        "type": "sqrt"
-                    }
-                },
-                "color":{
-                    "field":"State/UTs",
-                    "type": "nominal"
-                },
-                "size":{
-                    "field":"Death Ratio (%)",
+                "x": {
+                    "field": "Total Cases",
                     "type": "quantitative"
                 },
-                        "opacity":{
-          "condition":{
-            "param":"State/UTs",
-          "value":1.0},
-          "value":0.2
-        },
+                "color": {
+                    "field": "State/UTs",
+                    "type": "nominal",
+                    "scale": {"scheme": "tableau10"}
+                },
+                "size": {
+                    "field": "Death Ratio (%)",
+                    "type": "quantitative"
+                },
+                "opacity": {
+                    "condition": {
+                        "param": "State/UTs",
+                        "value": 1.0
+                    },
+                    "value": 0.2
+                },
                 "tooltip": [
                     {
-                      "field": "State/UTs",
-                      "type": "nominal",
-                      "title": "State/Union Teritories"
+                        "field": "State/UTs",
+                        "type": "nominal",
+                        "title": "State/Union Teritories"
                     },
                     {
-                      "field": "Total Cases",
-                      "type": "quantitative",
-                      "title": "Confirmed Cases",
-                      "format":","
+                        "field": "Total Cases",
+                        "type": "quantitative",
+                        "title": "Confirmed Cases",
+                        "format": ","
                     },
                     {
-                      "field": "Deaths",
-                      "type": "quantitative",
-                      "title": "Deaths",
-                      "format":","
+                        "field": "Deaths",
+                        "type": "quantitative",
+                        "title": "Deaths",
+                        "format": ","
                     },
                     {
-                      "field": "Death Ratio (%)",
-                      "type": "quantitative",
-                      "title": "Death Ratio (%)",
-                      "format":","
+                        "field": "Death Ratio (%)",
+                        "type": "quantitative",
+                        "title": "Death Ratio (%)",
+                        "format": ","
                     }
-                    ]
+                ]
             }
         },
         {
-            "mark":{
+            "mark": {
                 "type": "text",
-                "align":"right",
-                "baseline":"middle",
-                "dx":-12,
-                "fontSize":11.5,
-                "fontStyle":"italic"
+                "align": "right",
+                "baseline": "middle",
+                "dx": -12,
+                "fontSize": 11.5,
+                "fontStyle": "italic",
+                "angle":0
             },
             "encoding": {
-                "text":{
-                    "field":"State/UTs",
+                "text": {
+                    "field": "State/UTs",
                     "type": "nominal"
                 },
-                "color":{
-                    "value":"black"
+                "color": {
+                    "value": "black"
                 },
-                "opacity":{
-                    "condition":{
-                        "test": "datum['State/UTs'] == 'Maharashtra' || datum['State/UTs'] == 'Kerala' || datum['State/UTs'] == 'Delhi'",
+                "opacity": {
+                    "condition": {
+                        "test": "datum['State/UTs'] == 'Maharashtra' || datum['State/UTs'] == 'Karnataka' || datum['State/UTs'] == 'Tamil Nadu'",
                         "value": 1
                     },
                     "value": 0
                 }
-
             }
         }
     ]

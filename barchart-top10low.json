@@ -2,106 +2,77 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 300,
     "height": 300,
-    "title": "Top 10 States with Least COVID-19 Deaths",
-    "data": {
-        "url": "india-covid-top10low.csv"
+    "title": "Top 10 Indian State/UTs with Lowest COVID-19 Deaths",
+    "data": {"url": "india-covid-top10low.csv"},
+    "encoding": {
+      "y": {
+        "field": "State/UTs",
+        "type": "nominal",
+        "sort": []
       },
-    "encoding":{
-        "y":{
-            "field":"Deaths",
-            "type":"quantitative"
-        },
-        "x": {
-            "field":"Total Cases",
-            "type":"quantitative"
-        }
-    },
-    "layer":[
-        {
-         "params": 
-         [
-           {
-          "name": "State/UTs",
-          "select":{
-            "type":"point",
-            "fields": ["State/UTs"]
-          },
-          "bind":"legend"
+      "x": {
+        "field": "Deaths",
+        "type": "quantitative",
+        "scale": {"domain": [0, 900]}
       }
-    ],
-            "mark":"circle",
-
-            "encoding": {
-                "y":{
-                    "field":"Deaths",
-                    "type": "quantitative",
-                    "title":"Deaths due to COVID-19"
-                },
-                "x":{
-                    "field":"Total Cases",
-                    "type": "quantitative"
-                },
-                "color":{
-                    "field":"State/UTs",
-                    "type": "nominal"
-                },
-                "size":{
-                    "field":"Total_population_2011",
-                    "type": "quantitative"
-                },
-                        "opacity":{
-          "condition":{
-            "param":"State/UTs",
-          "value":1.0},
-          "value":0.2
-        },
-                "tooltip": [
-                    {
-                      "field": "State/UTs",
-                      "type": "nominal",
-                      "title": "State/Union Teritories"
-                    },
-                    {
-                      "field": "Total Cases",
-                      "type": "quantitative",
-                      "title": "Confirmed Cases",
-                      "format":","
-                    },
-                                {
-                      "field": "Deaths",
-                      "type": "quantitative",
-                      "title": "Deaths",
-                      "format":","
-                    }
-                    ]
-            }
-        },
-        {
-            "mark":{
-                "type": "text",
-                "align":"right",
-                "baseline":"middle",
-                "dx":-20,
-                "fontSize":11.5,
-                "fontStyle":"italic"
+    },
+    "layer": [
+      {
+        "params": [
+          {
+            "name": "State/UTs",
+            "select": {"type": "point", "fields": ["State/UTs"]},
+            "bind": "legend"
+          }
+        ],
+        "mark": "bar",
+        "encoding": {
+          "y": {
+            "field": "State/UTs",
+            "type": "nominal",
+            "sort": [],
+            "title":null
+          },
+          "x": {"field": "Deaths", "type": "quantitative"},
+          "color": {
+              "field": "State/UTs", 
+              "type": "nominal",
+              "scale": {"scheme": "category10"}
+              },
+          "opacity": {
+            "condition": {"param": "State/UTs", "value": 1},
+            "value": 0.2
+          },
+          "tooltip": [
+            {
+              "field": "State/UTs",
+              "type": "nominal",
+              "title": "State/Union Teritories"
             },
-            "encoding": {
-                "text":{
-                    "field":"State/UTs",
-                    "type": "nominal"
-                },
-                "color":{
-                    "value":"black"
-                },
-                "opacity":{
-                    "condition":{
-                        "test": "datum['State/UTs'] == 'Uttar Pradesh' || datum['State/UTs'] == 'West Bengal' || datum['State/UTs'] == 'Dadra and Nagar Haveli and Daman and Diu'",
-                        "value": 1
-                    },
-                    "value": 0
-                }
-
+            {
+              "field": "Deaths",
+              "type": "quantitative",
+              "title": "Number of Deaths"
             }
+          ]
         }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "fontSize": 11,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {
+              "field": "Deaths", 
+              "type": "quantitative", 
+              "format": ","
+              },
+          "color": {"value": "black"}
+        }
+      }
     ]
-}
+  }

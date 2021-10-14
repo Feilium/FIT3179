@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 300,
+    "width": 275,
     "height": 300,
     "title": "Top 10 Indian State/UTs with Lowest COVID-19 Deaths",
     "data": {"url": "india-covid-top10low.csv"},

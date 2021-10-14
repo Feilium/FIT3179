@@ -1,0 +1,71 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Top 10 Indian State/UTs with Highest COVID-19 Deaths",
+    "width": 585,
+    "height": 600,
+    "data": {
+        "url": "india-covid-top10high.csv"
+    },
+    "layer": [
+        {
+            "params": [
+                {
+                    "name": "State/UTs",
+                    "select": {
+                        "type": "point",
+                        "on": "mouseover",
+                        "fields": [
+                            "State/UTs"
+                        ]
+                    },
+                    "bind": "legend"
+                }
+            ],
+            "mark": {
+                "type": "arc",
+                "innerRadius": 50,
+                "stroke": "#fff",
+                "strokeWidth": 4
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "radiusOffset": 15,
+                "fontSize": 15
+            },
+            "encoding": {
+                "text": {
+                    "field": "Death Ratio (%)",
+                    "type": "quantitative"
+                }
+            }
+        }
+    ],
+    "encoding": {
+        "theta": {
+            "field": "Death Ratio (%)",
+            "type": "quantitative",
+            "stack": true
+        },
+        "radius": {
+            "field": "Death Ratio (%)",
+            "scale": {
+                "type": "sqrt",
+                "zero": true,
+                "rangeMin": 30
+            }
+        },
+        "color": {
+            "field": "State/UTs",
+            "type": "nominal"
+        },
+        "opacity": {
+            "condition": {
+                "param": "State/UTs",
+                "value": 1
+            },
+            "value": 0.2
+        }
+    }
+}

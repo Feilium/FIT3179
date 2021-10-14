@@ -23,143 +23,206 @@
       text-align: center;
     }
 
-    .my-img {
-      width: 100px;
-      height: 100px;
+    body {
+      background-color: white !important;
+    }
+
+    #my-title {
+    background-color: white !important;
+}
+
+    .row {
+      background-color: #EDF2F4 !important;
     }
   </style>
-  
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
 </head>
 
 <div class="container">
-  <div class="row mt-3 rounded" id="my-title">
+  <div class="row mt-4 rounded" id="my-title">
     <h1 class="my-center">
-      Numbers - Fact or Misleading?
+      <u> Numbers - <span style="font-size: 50px;"> Fact </span> or <span style="font-size: 50px;"> Lie </span>? </u>
     </h1>
   </div>
+</div>
 
-  <body>
+<body>
 
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h1> </h1>
-        <p> At a glance, numbers are values used to represent the quantity of objects in our daily lives.
-          Numbers are able to portray factual information to us such as the cost of our electrical bill, how many days
-          are
-          there in a week and so on.
-          However, numbers can also be misleading!
+  <div class="container">
+    <div class="row mt-3" id="my-title">
+      <div class="col">
+        <p style="text-align: center;">
+          At first glance, numbers are able to portray <strong> factual </strong> information to us such as the cost of
+          our electrical bill, how many days
+          are there in a year and so on.
+        </p>
+        <p style="text-align: center;">
+          However, numbers can also be <strong>misleading</strong>!
         </p>
       </div>
     </div>
-
-    <div class="row mt-3 rounded py-2 subheading">
-      <h2 class="my-center">
-        For an example...
-      </h2>
-    </div>
-
-    <div class="pure-g">
-      <div class="pure-u-2-5">
-        <div id="vis1"></div>
-
-        <script type="text/javascript">
-          vegaEmbed("#vis1", "barchart-top10high.json").then(function (result) {
-
-          }).catch(console.error);
-        </script>
-
-      </div>
-
-      <div class="pure-u-1-5">
-        <div class="description">
-          <p style="text-align:justify"> Two bar charts consisting of the top 10 Indian State/Union Territory with the highest and lowest COVID-19
-            Deaths (as of 21st September 2021) has been computed.</p>
-          <p style="text-align: justify;"> Through these charts, we are able to arrive at the conclusion that 'Maharashtra' has the highest number of
-            COVID-19 deaths, while the union territory of Dadra, Nagar Haveli, Daman and Diu has the lowest number of
-            deaths. </p>
-          <p style="text-align: justify;"> Indirectly, these numbers imply that Maharashtra is the most dangerous place to be in India. However,
-            we're not looking at the most important aspect of these numbers, the context it is placed in.</p>
-        </div>
-      </div>
-
-      <div class="pure-u-2-5">
-        <div id="vis2"></div>
-
-        <script type="text/javascript">
-          vegaEmbed("#vis2", "barchart-top10low.json").then(function (result) {
-
-          }).catch(console.error);
-        </script>
-
-      </div>
-    </div>
-
-    <div class="row mt-3 rounded py-2 subheading">
-      <h2 class="my-center">
-        When in reality...
-      </h2>
-    </div>
-
-    <div class="pure-g">
-      <div class="pure-u-2-5">
-        <div id="vis3"></div>
-
-        <script type="text/javascript">
-          vegaEmbed("#vis3", "bubble-top10high.json").then(function (result) {
-
-          }).catch(console.error);
-        </script>
-
-      </div>
-
-      <div class="pure-u-1-5">
-        <div class="description">
-          <p style="text-align: justify;"> The primary variable we should be wary about while looking at the number of COVID-19 deaths is it's death
-            ratio.</p>
-          <p style="text-align: justify;"> The greater the death ratio ( Number of Deaths due to COVID-19 over Total Number of Confirmed COVID-19
-            Cases),
-            the greater the likelihood that the state/union territory lacks medical facilities. </p>
-          <p style="text-align: justify;"> Therefore, states/union terriotries with high death ratios is what we, as an audience have to pay
-            attention towards to since numbers can be factual, but misleading given the context of situation.</p>
-        </div>
-      </div>
-
-      <div class="pure-u-2-5">
-        <div id="vis4"></div>
-
-        <script type="text/javascript">
-          vegaEmbed("#vis4", "bubble-top10low.json").then(function (result) {
-
-          }).catch(console.error);
-        </script>
-
-      </div>
-    </div>
-
-</div>
-
-<div class="row mt-3 rounded py-2 subheading">
-  <h2 class="my-center">
-    Why stop there...
-  </h2>
-  <p style="text-align: center;"> Using an entirely different visualisation idiom such as a choropleth map can provide information more efficiently.</p>
-</div>
-
-<div class="my-center">
-  <div class="pure-g">
-    <div class="pure-u-1-1">
-      <div id="copium"></div>
-
-      <script type="text/javascript">
-        vegaEmbed("#copium", "sample.json").then(function (result) {
-
-        }).catch(console.error);
-      </script>
-    </div>
-
   </div>
-</div>
+
+  <div class="container">
+    <div class="row mt-3 rounded py-2 subheading">
+
+      <h2 class="my-center">
+        For example...
+      </h2>
+      <p style="text-align: center;"> Based on the bar chart, we can conclude that
+        <span style="color:goldenrod"> Maharashtra </span> has the <strong>highest number</strong> of COVID-19 deaths as
+        of 21st September
+        2021.
+      </p>
+    </div>
+  </div>
+
+  <div class="my-center">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div id="vis1"></div>
+
+          <script type="text/javascript">
+            vegaEmbed("#vis1", "barchart-top10high.json").then(function (result) {
+
+            }).catch(console.error);
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col ">
+        <div class="description">
+          <p style="text-align: center;"> Indirectly, these numbers imply that <span style="color:goldenrod">
+              Maharashtra </span> is the most dangerous
+            place to be in India. However, we're not looking at the <strong> full context</strong> of the situation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row mt-3 rounded py-2 subheading">
+      <h2 class="my-center">
+        In reality...
+      </h2>
+      <p style="text-align: center;"> The primary variable we should be wary about while looking at the number of
+        COVID-19 deaths is it's <strong>death ratio (%)</strong>.</p>
+    </div>
+  </div>
+
+  <div class="my-center">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div id="vis2"></div>
+
+          <script type="text/javascript">
+            vegaEmbed("#vis2", "bubble-top10high.json").then(function (result) {
+
+            }).catch(console.error);
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="description">
+          <p style="text-align: center;"> In terms of death ratio, <span style="color:goldenrod">
+              Maharashtra </span> is actually the 2nd highest (2.12%), only losing out to <span style="color: #bb8fce">
+              Punjab </span> (2.74%). </p>
+              <p style="text-align: center;"> Therefore, the most dangerous state in India is <span style="color: #bb8fce">
+                Punjab </span> since the fatality rate due to COVID-19 there is the <strong>highest</strong>.
+
+              </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row mt-3 rounded py-2 subheading">
+      <h2 class="my-center">
+        Why stop there...
+      </h2>
+      <p style="text-align: center;"> Using an entirely different visualisation idiom such as a choropleth map can
+        provide
+        information more effectively.</p>
+    </div>
+  </div>
+
+  <div class="my-center">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+          <div id="copium"></div>
+
+          <script type="text/javascript">
+            vegaEmbed("#copium", "sample.json").then(function (result) {
+
+            }).catch(console.error);
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <div class="row mt-3 rounded py-2 subheading">
+      <h2 class="my-center">
+        Or alternatively...
+      </h2>
+      <p style="text-align: center;"> The rose chart is an effective visualiation idiom too.</p>
+    </div>
+  </div>
+
+  <div class="my-center">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+          <div id="sadge"></div>
+
+          <script type="text/javascript">
+            vegaEmbed("#sadge", "radialchart-top10high.json").then(function (result) {
+
+            }).catch(console.error);
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row mt-3" id="my-title">
+      <div class="col">
+        <p style="text-align: center;">
+          In conclusion, numbers can <strong>truthfully mislead </strong>others without <strong>proper context</strong> to the situation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="page-footer">
+      <div class="footer-copyright text-center py-3">
+        <p>FIT3179 Data Visualisation 2</p>
+        <a href="https://feilium.github.io/FIT3179/"> Khaw Ming Fei</a> © 2021
+      </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
 
 </body>
 

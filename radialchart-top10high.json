@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Top 10 Indian State/UTs with Highest COVID-19 Deaths",
+    "title": "Top 10 Indian State/UTs with Highest COVID-19 Death Ratio (%)",
     "width": 585,
     "height": 600,
     "data": {
